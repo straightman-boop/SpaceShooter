@@ -5,7 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement playerController;
-    public float speed;
+    public float speed = 0.1f;
+
+    public GameObject Projectile;
+    public GameObject projectilePosition;
+
+    float fireInterval = .5f;
+    float nextFire;
 
     void Awake()
     {
@@ -23,12 +29,23 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-  
+        nextFire = fireInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
+        nextFire -= Time.deltaTime;
+
+        if (Input.GetKeyDown("space") && nextFire <= 0)
+        {
+            GameObject projectile = (GameObject)Instantiate(Projectile);
+
+            projectile.transform.position = projectilePosition.transform.position;
+            nextFire = fireInterval;
+        }
+
+
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
