@@ -45,7 +45,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         GameObject enemyprojectile = (GameObject)Instantiate(enemyProjectile);
         enemyProjectile.transform.position = enemyProjectilePosition.transform.position;
-        Debug.Log(enemyProjectile.transform.position + " | " + enemyProjectilePosition.transform.position);
+        Debug.Log("Fire! " + enemyProjectile.transform.position + " | " + enemyProjectilePosition.transform.position);
 
     }
 }

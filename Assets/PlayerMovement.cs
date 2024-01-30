@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         nextFire -= Time.deltaTime;
 
-        if (Input.GetKeyDown("space") && nextFire <= 0)
+        if (Input.GetMouseButtonDown(0) && nextFire <= 0)
         {
             GameObject projectile = (GameObject)Instantiate(Projectile);
 
