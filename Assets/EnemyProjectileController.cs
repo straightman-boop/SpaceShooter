@@ -6,6 +6,8 @@ public class EnemyProjectileController : MonoBehaviour
 {
     float speed;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class EnemyProjectileController : MonoBehaviour
             Destroy(gameObject);
         }
 
-
     }
+
+   
 }

@@ -6,6 +6,8 @@ public class ProjectileController : MonoBehaviour
 {
     float speed;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +25,19 @@ public class ProjectileController : MonoBehaviour
 
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
 
-        if(transform.position.y > max.y)
+        if (transform.position.y > max.y)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            //playerst
+        }
+
+
     }
 }
