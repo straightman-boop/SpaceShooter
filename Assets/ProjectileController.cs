@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     float speed;
-
+    public GameObject Explosion;
     
 
     // Start is called before the first frame update
@@ -38,6 +38,17 @@ public class ProjectileController : MonoBehaviour
             PlayerStatsScript.playerStats.UpdateScore();
         }
 
+
+        if (collision.tag == "Enemy" || collision.tag == "enemyProjectile")
+        {
+            Vector2 expos = transform.position;
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+
+            GameObject explosion = (GameObject)Instantiate(Explosion); ;
+            explosion.transform.position = expos;
+
+        }
 
     }
 }

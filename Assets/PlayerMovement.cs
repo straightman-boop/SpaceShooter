@@ -10,17 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Projectile;
     public GameObject projectilePosition;
 
-    float fireInterval = .5f;
+    float fireInterval = .25f;
     float nextFire;
 
+    public GameObject Explosion;
     void Awake()
     {
-        if(playerController == null)
+        if (playerController == null)
         {
             playerController = this;
         }
 
-        else if(playerController != this)
+        else if (playerController != this)
         {
             Destroy(gameObject);
         }
@@ -49,15 +50,15 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        Vector2 direction = new Vector2(x,y).normalized;
+        Vector2 direction = new Vector2(x, y).normalized;
 
         Move(direction);
     }
 
     void Move(Vector2 direction)
     {
-        Vector2 min = Camera.main.ViewportToWorldPoint (new Vector2(0,0));
-        Vector2 max = Camera.main.ViewportToWorldPoint (new Vector2(1,1));
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
 
         max.x = max.x - .5f;
         min.x = min.x + .5f;
@@ -67,11 +68,25 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 pos = transform.position;
         pos += direction * speed * Time.deltaTime;
-        
-        pos.x = Mathf.Clamp (pos.x, min.x, max.x);
-        pos.y = Mathf.Clamp (pos.y, min.y, max.y);
+
+        pos.x = Mathf.Clamp(pos.x, min.x, max.x);
+        pos.y = Mathf.Clamp(pos.y, min.y, max.y);
 
         transform.position = pos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy" || collision.tag == "enemyProjectile")
+        {
+            PlayerStatsScript.playerStats.playerLife--;
+            Debug.Log("Hit");
+
+            Vector2 expos = transform.position;
+
+            GameObject explosion = (GameObject)Instantiate(Explosion); ;
+            explosion.transform.position = expos;
+        }
     }
 
 
