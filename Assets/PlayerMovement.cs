@@ -16,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Explosion;
 
     public AudioSource fire;
+
+    public bool isGameOver = false;
+    public GameObject RespawnPoint;
+
     void Awake()
     {
         if (playerController == null)
@@ -89,6 +93,19 @@ public class PlayerMovement : MonoBehaviour
 
             GameObject explosion = (GameObject)Instantiate(Explosion); ;
             explosion.transform.position = expos;
+
+
+            if (PlayerStatsScript.playerStats.playerLife > 0)
+            {
+                transform.position = RespawnPoint.transform.position;
+            }
+
+            else
+            {
+                GameController.gameController.GameOver();
+                isGameOver = true;
+                Destroy(gameObject);
+            }
         }
     }
 
