@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour
     public static GameController gameController;
     public GameObject gameOverScreen;
 
+    public AudioSource loseFX;
+    public AudioSource bgFX;
+
     private void Awake()
     {
         if (gameController == null)
@@ -35,7 +38,9 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        bgFX.Stop();
         gameOverScreen.SetActive(true);
+        loseFX.Play();
 
         EnemySpawnerScript.enemySpawner.enabled = false;
         PlayerMovement.playerController.enabled = false;
