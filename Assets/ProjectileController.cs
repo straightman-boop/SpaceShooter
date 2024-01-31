@@ -35,7 +35,7 @@ public class ProjectileController : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            //playerst
+            PlayerStatsScript.playerStats.UpdateScore();
         }
 
 

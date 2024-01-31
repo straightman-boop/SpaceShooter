@@ -39,7 +39,7 @@ public class PlayerStatsScript : MonoBehaviour
     public void UpdateScore()
     {
         score += 100;
-        string scoreStr = string.Format("{0.0000000}", score);
+        string scoreStr = string.Format("{0:0000000}", score);
         scoreText.text = "Score: " + scoreStr;
 
     }
