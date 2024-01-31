@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     float nextFire;
 
     public GameObject Explosion;
+
+    public AudioSource fire;
     void Awake()
     {
         if (playerController == null)
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && nextFire <= 0)
         {
             GameObject projectile = (GameObject)Instantiate(Projectile);
+            fire.Play();
 
             projectile.transform.position = projectilePosition.transform.position;
             nextFire = fireInterval;
