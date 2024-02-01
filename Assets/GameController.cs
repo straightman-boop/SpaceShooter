@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController gameController;
     public GameObject gameOverScreen;
+    public GameObject phase2;
 
     public TextMeshProUGUI levelNumber;
 
@@ -58,6 +59,7 @@ public class GameController : MonoBehaviour
         loseFX.Play();
 
         EnemySpawnerScript.enemySpawner.enabled = false;
+        BossSpawnerScript.bossSpawnerScript.enabled = false;
         PlayerMovement.playerController.enabled = false;
     }
 
@@ -86,6 +88,9 @@ public class GameController : MonoBehaviour
     void StartLevel2()
     {
         Debug.Log("LEVEL 2 HAS BEGUN!");
+        phase2.SetActive(true);
+
+        EnemySpawnerScript.enemySpawner.enabled = false;
         bgFX.Stop();
         bossMusic.Play();
     }
