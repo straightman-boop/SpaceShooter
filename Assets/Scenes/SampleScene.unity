@@ -1886,6 +1886,7 @@ MonoBehaviour:
   levelNumber: {fileID: 720340072}
   loseFX: {fileID: 1123745805}
   bgFX: {fileID: 1123745804}
+  bossMusic: {fileID: 1123745806}
 --- !u!4 &1123745803
 Transform:
   m_ObjectHideFlags: 0

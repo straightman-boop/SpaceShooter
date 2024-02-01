@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
 
     bool level1Over = false;
 
+    public AudioSource bossMusic;
+
     private void Awake()
     {
         if (gameController == null)
@@ -84,6 +86,8 @@ public class GameController : MonoBehaviour
     void StartLevel2()
     {
         Debug.Log("LEVEL 2 HAS BEGUN!");
+        bgFX.Stop();
+        bossMusic.Play();
     }
 
     IEnumerator DelayStartLevel()
