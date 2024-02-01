@@ -15,6 +15,8 @@ public class EnemySpawnerScript : MonoBehaviour
     float spawnInterval;
     private int currentEnemyShip = 0;
 
+    int enemyCount;
+
     private void Awake()
     {
         if (enemySpawner == null)
@@ -32,6 +34,8 @@ public class EnemySpawnerScript : MonoBehaviour
     void Start()
     {
         spawnInterval = Random.Range(1, 3);
+
+        enemyCount = 0;
     }
 
     // Update is called once per frame
@@ -39,12 +43,13 @@ public class EnemySpawnerScript : MonoBehaviour
     {
         spawnInterval -= Time.deltaTime;
 
-        if (spawnInterval <= 0)
+        if (spawnInterval <= 0 && enemyCount <= 5)
         {
             float spawnXPosition = Random.Range(xPosMin, xPosMax);
             float spawnYPostion = Random.Range(yPosMin, yPosMax);
 
             GameObject enemyShip = (GameObject)Instantiate(enemyShipPrefab);
+            enemyCount++;
 
             enemyShip.transform.position = new Vector2(spawnXPosition, spawnYPostion);
 
