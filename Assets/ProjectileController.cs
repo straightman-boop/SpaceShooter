@@ -41,7 +41,12 @@ public class ProjectileController : MonoBehaviour
 
         if (collision.tag == "Enemy" || collision.tag == "enemyProjectile")
         {
-            Vector2 expos = transform.position;
+            if(collision.tag == "Enemy" && collision.tag != "enemyProjectile")
+            {
+                GameController.gameController.ShipDestroyed();
+            }
+
+            Vector2 expos = transform.position;           
             Destroy(gameObject);
             Destroy(collision.gameObject);
 

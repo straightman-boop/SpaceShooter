@@ -37,6 +37,7 @@ public class EnemyControllerScript : MonoBehaviour
 
         if (transform.position.y < min.y)
         {
+            GameController.gameController.ShipDestroyed();
             Destroy(gameObject);
         }
     }
@@ -45,7 +46,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         GameObject enemyprojectile = (GameObject)Instantiate(enemyProjectile);
         enemyProjectile.transform.position = enemyProjectilePosition.transform.position;
-        Debug.Log("Fire! " + enemyProjectile.transform.position + " | " + enemyProjectilePosition.transform.position);
+        //Debug.Log("Fire! " + enemyProjectile.transform.position + " | " + enemyProjectilePosition.transform.position);
 
     }
 }
