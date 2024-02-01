@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
@@ -41,18 +42,26 @@ public class ProjectileController : MonoBehaviour
 
         if (collision.tag == "Enemy" || collision.tag == "enemyProjectile")
         {
-            if(collision.tag == "Enemy" && collision.tag != "enemyProjectile")
+            if (collision.tag == "Enemy" && collision.tag != "enemyProjectile")
             {
                 GameController.gameController.ShipDestroyed();
             }
 
-            Vector2 expos = transform.position;           
+            Vector2 expos = transform.position;
             Destroy(gameObject);
             Destroy(collision.gameObject);
 
             GameObject explosion = (GameObject)Instantiate(Explosion); ;
             explosion.transform.position = expos;
 
+        }
+
+        if (collision.tag == "Boss")
+        {
+            Vector2 expos = transform.position;
+            GameObject explosion = (GameObject)Instantiate(Explosion);
+            explosion.transform.position = expos;
+            Destroy(gameObject);
         }
 
     }
