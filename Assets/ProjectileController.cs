@@ -62,6 +62,16 @@ public class ProjectileController : MonoBehaviour
             GameObject explosion = (GameObject)Instantiate(Explosion);
             explosion.transform.position = expos;
             Destroy(gameObject);
+
+            GameController.gameController.DecrementBossHealth();
+        }
+
+        if (collision.tag == "Meteors")
+        {
+            Vector2 expos = transform.position;
+            GameObject explosion = (GameObject)Instantiate(Explosion);
+            explosion.transform.position = expos;
+            Destroy(gameObject);
         }
 
     }

@@ -9,7 +9,7 @@ public class MeteorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = -0.5f;
+        speed = -1.5f;
     }
 
     // Update is called once per frame
@@ -18,5 +18,12 @@ public class MeteorController : MonoBehaviour
         Vector2 position = transform.position;
         position = new Vector2(position.x + speed * Time.deltaTime, position.y);
         transform.position = position;
+
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+
+        if (transform.position.x < min.x)
+        {
+            Destroy(gameObject);
+        }
     }
 }

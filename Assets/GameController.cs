@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class GameController : MonoBehaviour
 
     public AudioSource bossMusic;
 
+    public int bossHealth = 100;
+    public int playerDmg = 5;
+
+    public Slider bossSlider;
+    public GameObject healthBar;
+
     private void Awake()
     {
         if (gameController == null)
@@ -37,7 +44,9 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        bossSlider.minValue = 0;
+        bossSlider.maxValue = bossHealth;
+        bossSlider.value = bossHealth;
     }
 
     // Update is called once per frame
@@ -49,7 +58,9 @@ public class GameController : MonoBehaviour
             level1Over = true;
         }
 
-        //Debug.Log(shipsDestroyed);
+        Debug.Log(bossHealth);
+
+        
     }
 
     public void GameOver()
@@ -59,7 +70,10 @@ public class GameController : MonoBehaviour
         loseFX.Play();
 
         EnemySpawnerScript.enemySpawner.enabled = false;
-        BossSpawnerScript.bossSpawnerScript.enabled = false;
+        //if(BossSpawnerScript.bossSpawnerScript.enabled == true)
+        //{
+        //    BossSpawnerScript.bossSpawnerScript.enabled = false;
+        //}  
         PlayerMovement.playerController.enabled = false;
     }
 
@@ -91,6 +105,7 @@ public class GameController : MonoBehaviour
         phase2.SetActive(true);
 
         EnemySpawnerScript.enemySpawner.enabled = false;
+        healthBar.SetActive(true);
         bgFX.Stop();
         bossMusic.Play();
     }
@@ -103,5 +118,11 @@ public class GameController : MonoBehaviour
         levelNumber.text = "Level 2";
         yield return new WaitForSeconds(1);
         StartLevel2();
+    }
+
+    public void DecrementBossHealth()
+    {
+        bossHealth -= playerDmg;
+        bossSlider.value = bossHealth;
     }
 }

@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "enemyProjectile" || collision.tag == "Boss")
+        if (collision.tag == "Enemy" || collision.tag == "enemyProjectile" || collision.tag == "Boss" || collision.tag == "Meteors")
         {
             PlayerStatsScript.playerStats.playerLife--;
             Debug.Log("Hit");

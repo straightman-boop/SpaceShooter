@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossSpawnerScript : MonoBehaviour
 {
     public static BossSpawnerScript bossSpawnerScript;
-    //public GameObject bossShipPrefab;
+    public GameObject bossShipPrefab;
     public GameObject meteorsPrefab;
 
     public float xMetMax = 3.8f;
@@ -17,6 +17,8 @@ public class BossSpawnerScript : MonoBehaviour
 
     private void Awake()
     {
+        bossShipPrefab.SetActive(true);
+
         if (bossSpawnerScript == null)
         {
             bossSpawnerScript = this;
@@ -31,7 +33,7 @@ public class BossSpawnerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnInterval = Random.Range(0, 1);
+        spawnInterval = 0.1f;      
     }
 
     // Update is called once per frame
