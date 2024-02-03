@@ -2115,7 +2115,7 @@ MonoBehaviour:
   loseFX: {fileID: 1123745805}
   bgFX: {fileID: 1123745804}
   bossMusic: {fileID: 1123745806}
-  bossHealth: 5
+  bossHealth: 200
   playerDmg: 5
   bossSlider: {fileID: 1394466653}
   healthBar: {fileID: 1604268059}
