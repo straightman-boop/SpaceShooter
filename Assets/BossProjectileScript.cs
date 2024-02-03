@@ -9,19 +9,29 @@ public class BossProjectileScript : MonoBehaviour
     public GameObject target;
     float speed = 1f;
 
+    Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
-    { //REVISIT ELDEN BYTES
+    {
+        if (target != null)
+        {
+            Vector2 position = target.transform.position - transform.position;
+            position.Normalize();
+            rb.position += position * speed * Time.deltaTime;
+        }
 
-        Vector2 position = target.transform.position - transform.position;
-        position.Normalize();
-        transform.position += target.transform.position * speed * Time.deltaTime;
+        if(GameController.gameController.isGamOver == true)
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

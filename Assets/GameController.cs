@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     public Slider bossSlider;
     public GameObject healthBar;
 
+    public bool isGamOver = false;
+
     private void Awake()
     {
         if (gameController == null)
@@ -65,15 +67,17 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        isGamOver = true;
         bgFX.Stop();
         gameOverScreen.SetActive(true);
         loseFX.Play();
 
         EnemySpawnerScript.enemySpawner.enabled = false;
-        //if(BossSpawnerScript.bossSpawnerScript.enabled == true)
+        //if (level1Over == true)
         //{
         //    BossSpawnerScript.bossSpawnerScript.enabled = false;
-        //}  
+        //    BossControllerScript.bossController.enabled = false;
+        //}
         PlayerMovement.playerController.enabled = false;
     }
 
