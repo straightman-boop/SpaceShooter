@@ -60,6 +60,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 direction = new Vector2(x, y).normalized;
 
         Move(direction);
+
+        if(GameController.gameController.gameWin == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Move(Vector2 direction)

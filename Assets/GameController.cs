@@ -29,6 +29,13 @@ public class GameController : MonoBehaviour
     public GameObject healthBar;
 
     public bool isGamOver = false;
+    public bool gameWin = false;
+
+    public GameObject gameWinScreen;
+    public AudioSource bossBGM;
+    public AudioSource winSFX;
+    public GameObject bossPrefab;
+
 
     private void Awake()
     {
@@ -62,7 +69,21 @@ public class GameController : MonoBehaviour
 
         Debug.Log(bossHealth);
 
-        
+        if(bossHealth <= 0)
+        {
+            GameWin();
+        }
+
+
+    }
+
+    public void GameWin()
+    {
+        bossBGM.Stop();
+        gameWin = true;
+        gameWinScreen.SetActive(true);      
+        winSFX.Play();
+        Destroy(bossPrefab);
     }
 
     public void GameOver()

@@ -28,7 +28,7 @@ public class BossProjectileScript : MonoBehaviour
             rb.position += position * speed * Time.deltaTime;
         }
 
-        if(GameController.gameController.isGamOver == true)
+        if(GameController.gameController.isGamOver == true || GameController.gameController.gameWin == true)
         {
             Destroy(gameObject);
         }
