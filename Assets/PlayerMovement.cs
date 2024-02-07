@@ -70,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        else if (GameController.gameController.isGamOver == true)
+        {
+            SelfDestruct();
+        }
     }
 
     void Move(Vector2 direction)
@@ -117,6 +122,16 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    void SelfDestruct()
+    {
+        Vector2 expos = transform.position;
+
+        GameObject explosion = (GameObject)Instantiate(Explosion); ;
+        explosion.transform.position = expos;
+
+        Destroy(gameObject);
     }
 
     void movePlayer()

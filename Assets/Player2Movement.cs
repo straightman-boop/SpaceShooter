@@ -70,6 +70,11 @@ public class Player2Movement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        else if (GameController.gameController.isGamOver == true)
+        {
+            SelfDestruct();
+        }
     }
 
     void Move(Vector2 direction)
@@ -96,7 +101,7 @@ public class Player2Movement : MonoBehaviour
     {
         if (collision.tag == "Enemy" || collision.tag == "enemyProjectile" || collision.tag == "Boss" || collision.tag == "Meteors")
         {
-            PlayerStatsScript.playerStats.playerLife--;
+            Player2Stats.playerStats.playerLife--;
             Debug.Log("Hit");
 
             Vector2 expos = transform.position;
@@ -105,7 +110,7 @@ public class Player2Movement : MonoBehaviour
             explosion.transform.position = expos;
 
 
-            if (PlayerStatsScript.playerStats.playerLife > 0)
+            if (Player2Stats.playerStats.playerLife > 0)
             {
                 transform.position = RespawnPoint.transform.position;
             }
@@ -117,6 +122,16 @@ public class Player2Movement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    void SelfDestruct()
+    {
+        Vector2 expos = transform.position;
+
+        GameObject explosion = (GameObject)Instantiate(Explosion); ;
+        explosion.transform.position = expos;
+
+        Destroy(gameObject);
     }
 
     void movePlayer()

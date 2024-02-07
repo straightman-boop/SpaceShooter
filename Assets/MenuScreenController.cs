@@ -11,6 +11,8 @@ public class MenuScreenController : MonoBehaviour
     public GameObject ui;
     bool cond = false;
 
+    public GameObject howto;
+
     private void Awake()
     {
         if (menuScreenController == null)
@@ -28,12 +30,12 @@ public class MenuScreenController : MonoBehaviour
     {
         SceneManager.LoadScene("OnePlayerScene");
     }
-    
+
     public void TwoPlayer()
     {
         SceneManager.LoadScene("TwoPlayerScene");
     }
-    
+
     public void Play()
     {
         cond = !cond;
@@ -44,5 +46,15 @@ public class MenuScreenController : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void CloseHowTo()
+    {
+        howto.SetActive(false);
+    }
+
+    public void OpenHowTo()
+    {
+        howto.SetActive(true);
     }
 }

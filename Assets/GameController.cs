@@ -94,12 +94,10 @@ public class GameController : MonoBehaviour
         loseFX.Play();
 
         EnemySpawnerScript.enemySpawner.enabled = false;
-        //if (level1Over == true)
-        //{
-        //    BossSpawnerScript.bossSpawnerScript.enabled = false;
-        //    BossControllerScript.bossController.enabled = false;
-        //}
-        PlayerMovement.playerController.enabled = false;
+        if (level1Over == true)
+        {
+            BossSpawnerScript.bossSpawnerScript.enabled = false;
+        }
     }
 
     public void Restart()
