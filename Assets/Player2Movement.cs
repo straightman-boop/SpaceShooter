@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Player2Movement : MonoBehaviour
 {
-    public static PlayerMovement playerController;
+    public static Player2Movement playerController;
     public float speed = 0f;
 
     float x;
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         nextFire -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.U) && nextFire <= 0)
+        if (Input.GetKeyDown("[4]") && nextFire <= 0)
         {
             GameObject projectile = (GameObject)Instantiate(Projectile);
             fire.Play();
@@ -123,32 +123,30 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(x * speed * Time.deltaTime, y *
         speed * Time.deltaTime);
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             y = 10.0f;
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             x = -10.0f;
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             y = -10.0f;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             x = 10.0f;
         }
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow))
         {
             y = 0;
         }
-        if (Input.GetKeyUp(KeyCode.A) ||
-        Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.LeftArrow) ||
+        Input.GetKeyUp(KeyCode.RightArrow))
         {
             x = 0;
         }
     }
-
-
 }

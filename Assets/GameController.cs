@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
             level1Over = true;
         }
 
-        Debug.Log(bossHealth);
+        //Debug.Log(bossHealth);
 
         if(bossHealth <= 0)
         {
