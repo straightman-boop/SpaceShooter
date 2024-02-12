@@ -7,6 +7,8 @@ public class ProjectileController2 : MonoBehaviour
     float speed;
     public GameObject Explosion;
 
+    public GameObject Healthdrop;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,17 @@ public class ProjectileController2 : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Player2Stats.playerStats.UpdateScore();
+
+            Vector2 expos = collision.transform.position;
+
+            float chance = Random.Range(1f, 10f);
+            //Debug.Log(chance);
+
+            if (chance <= 2)
+            {
+                GameObject healthDrop = (GameObject)Instantiate(Healthdrop);
+                healthDrop.transform.position = expos;
+            }
         }
 
 
@@ -71,6 +84,20 @@ public class ProjectileController2 : MonoBehaviour
             GameObject explosion = (GameObject)Instantiate(Explosion);
             explosion.transform.position = expos;
             Destroy(gameObject);
+        }
+
+        if (collision.gameObject.layer == 9)
+        {
+            Vector2 expos = collision.transform.position;
+
+            float chance = Random.Range(1f, 10f);
+            //Debug.Log(chance);
+
+            if (chance <= 5)
+            {
+                GameObject healthDrop = (GameObject)Instantiate(Healthdrop);
+                healthDrop.transform.position = expos;
+            }
         }
 
     }

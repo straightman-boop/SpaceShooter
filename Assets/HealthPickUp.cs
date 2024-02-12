@@ -22,9 +22,17 @@ public class HealthPickUp : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (collision.tag == "Player")
+            if (collision.name == "Player1")
+            {
                 PickUpHealth();
-            
+            }
+
+            else if(collision.name == "Player2")
+            {
+                PickUpHealth2();
+            }
+
+
             Destroy(gameObject);
         }
     }
