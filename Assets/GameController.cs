@@ -36,6 +36,8 @@ public class GameController : MonoBehaviour
     public AudioSource winSFX;
     public GameObject bossPrefab;
 
+    public int shipsNum = 2;
+
 
     private void Awake()
     {
@@ -61,6 +63,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isGamOver == false && shipsNum == 0)
+        {
+            GameOver();
+        }
+
         if (shipsDestroyed == 5 && level1Over == false)
         {
             StartCoroutine(DelayStartLevel());

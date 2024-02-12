@@ -117,7 +117,7 @@ public class Player2Movement : MonoBehaviour
 
             else
             {
-                GameController.gameController.GameOver();
+                GameController.gameController.shipsNum--;
                 isGameOver = true;
                 Destroy(gameObject);
             }
