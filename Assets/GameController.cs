@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
     public AudioSource winSFX;
     public GameObject bossPrefab;
 
-    public int shipsNum = 2;
+    public int shipsNum;
 
 
     private void Awake()
@@ -58,11 +58,23 @@ public class GameController : MonoBehaviour
         bossSlider.minValue = 0;
         bossSlider.maxValue = bossHealth;
         bossSlider.value = bossHealth;
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            shipsNum = 1;
+        }
+
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            shipsNum = 2;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PlayerStatsScript.playerStats.playerLife);
+
         if(isGamOver == false && shipsNum == 0)
         {
             GameOver();

@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.tag == "Enemy" || collision.tag == "enemyProjectile" || collision.tag == "Boss" || collision.tag == "Meteors")
         {
             PlayerStatsScript.playerStats.playerLife--;
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
 
             Vector2 expos = transform.position;
 
@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 expos = transform.position;
 
-        GameObject explosion = (GameObject)Instantiate(Explosion); ;
+        GameObject explosion = Instantiate(Explosion); ;
         explosion.transform.position = expos;
 
         Destroy(gameObject);

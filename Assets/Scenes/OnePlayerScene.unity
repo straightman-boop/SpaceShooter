@@ -2125,6 +2125,7 @@ MonoBehaviour:
   bossBGM: {fileID: 1123745806}
   winSFX: {fileID: 1123745807}
   bossPrefab: {fileID: 1016034868}
+  shipsNum: 2
 --- !u!4 &1123745803
 Transform:
   m_ObjectHideFlags: 0
@@ -2884,7 +2885,7 @@ GameObject:
   - component: {fileID: 1201092601}
   - component: {fileID: 1201092604}
   m_Layer: 6
-  m_Name: Player
+  m_Name: Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
