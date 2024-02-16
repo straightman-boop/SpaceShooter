@@ -38,6 +38,11 @@ public class GameController : MonoBehaviour
 
     public int shipsNum;
 
+    public float speedPowerUp = 6f;
+    public float speedDuration = 5f;
+    float speedCooldown;
+    public bool speedOn;
+
 
     private void Awake()
     {
@@ -64,7 +69,7 @@ public class GameController : MonoBehaviour
             shipsNum = 1;
         }
 
-        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             shipsNum = 2;
         }
@@ -75,7 +80,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log(PlayerStatsScript.playerStats.playerLife);
 
-        if(isGamOver == false && shipsNum == 0)
+        if (isGamOver == false && shipsNum == 0)
         {
             GameOver();
         }
@@ -88,9 +93,18 @@ public class GameController : MonoBehaviour
 
         //Debug.Log(bossHealth);
 
-        if(bossHealth <= 0)
+        if (bossHealth <= 0)
         {
             GameWin();
+        }
+
+        if(speedOn == true)
+        {
+            speedCooldown -= Time.deltaTime;
+            if (speedCooldown <= 0)
+            {
+                speedOn = false;               
+            }
         }
 
 
@@ -100,7 +114,7 @@ public class GameController : MonoBehaviour
     {
         bossBGM.Stop();
         gameWin = true;
-        gameWinScreen.SetActive(true);      
+        gameWinScreen.SetActive(true);
         winSFX.Play();
         Destroy(bossPrefab);
     }
@@ -167,4 +181,22 @@ public class GameController : MonoBehaviour
         bossHealth -= playerDmg;
         bossSlider.value = bossHealth;
     }
+
+    public void IncreaseSpeed(string player)
+    {
+        if (player == "Player1")
+        {
+            PlayerMovement.playerController.speed = speedPowerUp;
+            speedOn = true;
+            speedDuration = speedCooldown;
+        }
+
+        if (player == "Player2")
+        {
+            Player2Movement.playerController.speed = speedPowerUp;
+            speedOn = true;
+            speedDuration = speedCooldown;
+        }
+    }
+
 }

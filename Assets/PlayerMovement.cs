@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement playerController;
-    public float speed = 0f;
+    public float speed;
+    float defSpd;
 
     float x;
     float y;
@@ -43,6 +44,9 @@ public class PlayerMovement : MonoBehaviour
         nextFire = fireInterval;
         rb = GetComponent<Rigidbody2D>();
         x = 0; y = 0;
+
+        defSpd = 3;
+        speed = defSpd;
     }
 
     // Update is called once per frame
