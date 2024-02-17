@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8351401045266311049}
   - component: {fileID: 8351401045266311048}
   - component: {fileID: 8351401045266311053}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8351401045287598680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyProjectilePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

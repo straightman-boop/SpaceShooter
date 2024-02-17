@@ -43,6 +43,17 @@ public class GameController : MonoBehaviour
     float speedCooldown;
     public bool speedOn;
 
+    public GameObject shield;
+    float shieldDur = 7f;
+    float shieldCool;
+
+    bool isShield = false;
+
+    public GameObject shield2;
+    float shieldDur2 = 7f;
+    float shieldCool2;
+
+    bool isShield2 = false;
 
     private void Awake()
     {
@@ -98,16 +109,51 @@ public class GameController : MonoBehaviour
             GameWin();
         }
 
-        if(speedOn == true)
+        if (speedOn == true)
         {
             speedCooldown -= Time.deltaTime;
             if (speedCooldown <= 0)
             {
-                speedOn = false;               
+                speedOn = false;
             }
         }
 
+        if (isShield == true)
+        {
+            shield.SetActive(true);
+            shieldCool -= Time.deltaTime;
 
+            if (shieldCool <= 0)
+            {
+                isShield = false;
+                shield.SetActive(false);
+            }
+        }
+
+        if (isShield2 == true)
+        {
+            shield2.SetActive(true);
+            shieldCool2 -= Time.deltaTime;
+
+            if (shieldCool2 <= 0)
+            {
+                isShield2 = false;
+                shield2.SetActive(false);
+            }
+        }
+
+    }
+
+    public void ShieldPickUp()
+    {
+        isShield = true;
+        shieldCool = shieldDur;
+    }
+
+    public void Shield2PickUp()
+    {
+        isShield2 = true;
+        shieldCool2 = shieldDur2;
     }
 
     public void GameWin()

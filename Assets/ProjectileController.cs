@@ -13,6 +13,8 @@ public class ProjectileController : MonoBehaviour
 
     public GameObject Speeddrop;
 
+    public GameObject Shielddrop;
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,11 +56,19 @@ public class ProjectileController : MonoBehaviour
                 healthDrop.transform.position = expos;
             }
 
-            if(chance <= 5 && chance > 2)
+            if (chance <= 5 && chance > 2)
             {
                 GameObject speedDrop = Instantiate(Speeddrop);
                 speedDrop.transform.position = expos;
             }
+            
+            if (chance <= 10 && chance > 5)
+            {
+                GameObject shieldDrop = Instantiate(Shielddrop);
+                shieldDrop.transform.position = expos;
+            }
+
+
 
         }
 
@@ -115,6 +125,14 @@ public class ProjectileController : MonoBehaviour
                 GameObject speedDrop = Instantiate(Speeddrop);
                 speedDrop.transform.position = expos;
             }
+
+            if (chance <= 10 && chance > 5)
+            {
+                GameObject shieldDrop = Instantiate(Shielddrop);
+                shieldDrop.transform.position = expos;
+            }
+
+
         }
 
     }

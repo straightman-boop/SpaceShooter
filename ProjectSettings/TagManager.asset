@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - Meteors
   - PickUp
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - PickUps
   - Player2
   - BossProjectiles
-  - 
-  - 
+  - Enemy
+  - Boss
   - 
   - 
   - 

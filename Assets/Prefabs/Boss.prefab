@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5625336074935921488}
   - component: {fileID: 5625336074935921503}
   - component: {fileID: 6014742553633889763}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6866392282667931465}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectilePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

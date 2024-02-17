@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 452830697913159218}
   - component: {fileID: 452830697913159244}
   - component: {fileID: 5047020263363766074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Projectile_Hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   Explosion: {fileID: 2663921679546799778, guid: 46c9d2b73f6364d418809f74ff100d4a, type: 3}
   Healthdrop: {fileID: 622951955379905913, guid: 1d3c50823b862fc4696fc807ac428a86, type: 3}
   Speeddrop: {fileID: 1206794077976529755, guid: 973431b291026694380cb55934372702, type: 3}
+  Shielddrop: {fileID: 8291000373946420435, guid: 585f3fba808700f44a007b11c37d467a, type: 3}
 --- !u!58 &5047020263363766074
 CircleCollider2D:
   m_ObjectHideFlags: 0
