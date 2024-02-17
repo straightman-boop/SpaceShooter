@@ -2464,7 +2464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1054387667}
   m_Layer: 5
-  m_Name: Player2
+  m_Name: Player2UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2618,6 +2618,9 @@ MonoBehaviour:
   winSFX: {fileID: 1123745807}
   bossPrefab: {fileID: 1016034868}
   shipsNum: 2
+  speedPowerUp: 6
+  speedDuration: 5
+  speedOn: 0
 --- !u!4 &1123745803
 Transform:
   m_ObjectHideFlags: 0
@@ -3448,6 +3451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  defSpd: 0
   Projectile: {fileID: 452830697913159247, guid: 53a41a16cd175274e875315dbbb66466, type: 3}
   projectilePosition: {fileID: 991232562}
   Explosion: {fileID: 2663921679546799778, guid: 46c9d2b73f6364d418809f74ff100d4a, type: 3}
@@ -3924,7 +3928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1344256798}
   m_Layer: 5
-  m_Name: Player1
+  m_Name: Player1UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4227,6 +4231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  defSpd: 0
   Projectile: {fileID: 452830697913159247, guid: d35662b59f9c3f64db4ae11e9d6aeac5, type: 3}
   projectilePosition: {fileID: 464225042}
   Explosion: {fileID: 2663921679546799778, guid: 46c9d2b73f6364d418809f74ff100d4a, type: 3}

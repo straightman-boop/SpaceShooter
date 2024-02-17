@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
@@ -21,19 +22,29 @@ public class BossProjectileScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        random = Random.Range(1, 100);
-
-        Debug.Log(random);
-
-        if (random <= 50)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             target = GameObject.Find("Player1");
         }
 
-        if (random <= 100 && random > 50)
+        if(SceneManager.GetActiveScene().buildIndex == 2)
         {
-            target = GameObject.Find("Player2");
+            random = Random.Range(1, 100);
+
+            Debug.Log(random);
+
+            if (random <= 50)
+            {
+                target = GameObject.Find("Player1");
+            }
+
+            if (random <= 100 && random > 50)
+            {
+                target = GameObject.Find("Player2");
+            }
         }
+
+        
 
     }
 
@@ -56,7 +67,6 @@ public class BossProjectileScript : MonoBehaviour
             Destroy(gameObject);
         }
         
-
 
         if (GameController.gameController.isGamOver == true || GameController.gameController.gameWin == true)
         {

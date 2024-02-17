@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
 {
-
     float decay = 7f;
 
     // Start is called before the first frame update

@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(shipsNum);
+        Debug.Log(shipsNum);
 
         if (isGamOver == false && shipsNum == 0)
         {

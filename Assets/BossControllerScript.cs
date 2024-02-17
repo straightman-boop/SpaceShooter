@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
 public class BossControllerScript : MonoBehaviour
@@ -35,17 +36,27 @@ public class BossControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        random = Random.Range(1, 2);
-
-        if (random == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             player = GameObject.Find("Player1");
         }
 
-        if (random == 2)
+        if(SceneManager.GetActiveScene().buildIndex == 2)
         {
-            player = GameObject.Find("Player2");
+            random = Random.Range(1, 100);
+
+            if (random <= 50)
+            {
+                player = GameObject.Find("Player1");
+            }
+
+            if (random <= 100 && random > 50)
+            {
+                player = GameObject.Find("Player2");
+            }
         }
+
+        
 
         waitToFire -= Time.deltaTime;
 
