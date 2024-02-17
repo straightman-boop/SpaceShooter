@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosion: {fileID: 2663921679546799778, guid: 46c9d2b73f6364d418809f74ff100d4a, type: 3}
   Healthdrop: {fileID: 622951955379905913, guid: 1d3c50823b862fc4696fc807ac428a86, type: 3}
+  Speeddrop: {fileID: 1206794077976529755, guid: 973431b291026694380cb55934372702, type: 3}
 --- !u!58 &5047020263363766074
 CircleCollider2D:
   m_ObjectHideFlags: 0

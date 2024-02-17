@@ -9,6 +9,8 @@ public class ProjectileController2 : MonoBehaviour
 
     public GameObject Healthdrop;
 
+    public GameObject Speeddrop;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,10 +46,16 @@ public class ProjectileController2 : MonoBehaviour
             float chance = Random.Range(1f, 10f);
             //Debug.Log(chance);
 
-            if (chance <= 2)
+            if (chance <= 5 && chance > 2)
             {
                 GameObject healthDrop = (GameObject)Instantiate(Healthdrop);
                 healthDrop.transform.position = expos;
+            }
+
+            if (chance <= 2)
+            {
+                GameObject speedDrop = Instantiate(Speeddrop);
+                speedDrop.transform.position = expos;
             }
         }
 
@@ -93,12 +101,17 @@ public class ProjectileController2 : MonoBehaviour
             float chance = Random.Range(1f, 10f);
             //Debug.Log(chance);
 
-            if (chance <= 5)
+            if (chance <= 2)
             {
-                GameObject healthDrop = (GameObject)Instantiate(Healthdrop);
+                GameObject healthDrop = Instantiate(Healthdrop);
                 healthDrop.transform.position = expos;
             }
-        }
 
+            if (chance <= 5 && chance > 2)
+            {
+                GameObject speedDrop = Instantiate(Speeddrop);
+                speedDrop.transform.position = expos;
+            }
+        }
     }
 }

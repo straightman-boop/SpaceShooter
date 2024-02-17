@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class ProjectileController : MonoBehaviour
     public GameObject Explosion;
 
     public GameObject Healthdrop;
+
+    public GameObject Speeddrop;
 
 
     // Start is called before the first frame update
@@ -47,8 +50,14 @@ public class ProjectileController : MonoBehaviour
 
             if (chance <= 2)
             {
-                GameObject healthDrop = (GameObject)Instantiate(Healthdrop);
+                GameObject healthDrop = Instantiate(Healthdrop);
                 healthDrop.transform.position = expos;
+            }
+
+            if(chance <= 5 && chance > 2)
+            {
+                GameObject speedDrop = Instantiate(Speeddrop);
+                speedDrop.transform.position = expos;
             }
 
         }
@@ -88,17 +97,23 @@ public class ProjectileController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 9)
         {
             Vector2 expos = collision.transform.position;
 
             float chance = Random.Range(1f, 10f);
             //Debug.Log(chance);
 
-            if (chance <= 5)
+            if (chance <= 5 && chance > 2)
             {
-                GameObject healthDrop = (GameObject)Instantiate(Healthdrop);
+                GameObject healthDrop = Instantiate(Healthdrop);
                 healthDrop.transform.position = expos;
+            }
+
+            if (chance <= 2)
+            {
+                GameObject speedDrop = Instantiate(Speeddrop);
+                speedDrop.transform.position = expos;
             }
         }
 

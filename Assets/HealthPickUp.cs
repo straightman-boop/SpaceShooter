@@ -6,6 +6,8 @@ using UnityEngine;
 public class HealthPickUp : MonoBehaviour
 {
 
+    float decay = 7f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,11 @@ public class HealthPickUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        decay -= Time.deltaTime;
+        if (decay <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -11,16 +11,39 @@ public class BossProjectileScript : MonoBehaviour
 
     Rigidbody2D rb;
 
+    float tracking = 2f;
+    bool isTracking = true;
+
+    int random;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player");
+
+        random = Random.Range(1, 100);
+
+        Debug.Log(random);
+
+        if (random <= 50)
+        {
+            target = GameObject.Find("Player1");
+        }
+
+        if (random <= 100 && random > 50)
+        {
+            target = GameObject.Find("Player2");
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(target);
+
+        //tracking -= Time.deltaTime;
+
         if (target != null)
         {
             Vector2 position = target.transform.position - transform.position;
@@ -28,7 +51,14 @@ public class BossProjectileScript : MonoBehaviour
             rb.position += position * speed * Time.deltaTime;
         }
 
-        if(GameController.gameController.isGamOver == true || GameController.gameController.gameWin == true)
+        if(target == null)
+        {
+            Destroy(gameObject);
+        }
+        
+
+
+        if (GameController.gameController.isGamOver == true || GameController.gameController.gameWin == true)
         {
             Destroy(gameObject);
         }

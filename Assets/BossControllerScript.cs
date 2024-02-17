@@ -21,18 +21,31 @@ public class BossControllerScript : MonoBehaviour
 
     GameObject player;
 
+    int random;
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 1;
         waitToFire = fireInterval;
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        random = Random.Range(1, 2);
+
+        if (random == 1)
+        {
+            player = GameObject.Find("Player1");
+        }
+
+        if (random == 2)
+        {
+            player = GameObject.Find("Player2");
+        }
 
         waitToFire -= Time.deltaTime;
 
@@ -86,7 +99,7 @@ public class BossControllerScript : MonoBehaviour
 
     void FireProjectile()
     {
-        GameObject enemyprojectile = (GameObject)Instantiate(enemyProjectile);
+        GameObject enemyprojectile = Instantiate(enemyProjectile);
         enemyProjectile.transform.position = enemyProjectilePosition.transform.position;
         //Debug.Log("Fire! " + enemyProjectile.transform.position + " | " + enemyProjectilePosition.transform.position);
 

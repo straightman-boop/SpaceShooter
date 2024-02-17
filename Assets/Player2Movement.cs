@@ -6,7 +6,7 @@ public class Player2Movement : MonoBehaviour
 {
     public static Player2Movement playerController;
     public float speed;
-    float defSpd;
+    [HideInInspector] public float defSpd;
 
     float x;
     float y;

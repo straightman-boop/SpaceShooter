@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement playerController;
     public float speed;
-    float defSpd;
-
+    [HideInInspector]  public float defSpd;
+    
     float x;
     float y;
     Rigidbody2D rb;
